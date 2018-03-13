@@ -5,6 +5,7 @@ import Control.Monad
 import Data.List 
 import System.Console.ANSI
 import Sum
+import Dictionary
 
 main = do
     clearScreen
@@ -26,8 +27,8 @@ applyRuleForlLine b v = [applyBasicValidationRule c i | c <- b | i <- v]
 
 applyBasicValidationRule :: Char -> Int -> Char
 applyBasicValidationRule b v
-                        | (b == '0') && (v == 3) = '*'
-                        | (b == '*') && (v < 2) = '0'
-                        | (b == '*') && (v > 3) = '0'
-                        | (b == '*') && ((v == 2) || (v == 3)) = '*'
+                        | (b == toChar Dead) && (v == 3) = toChar Alive
+                        | (b == toChar Alive) && (v < 2) = toChar Dead
+                        | (b == toChar Alive) && (v > 3) = toChar Dead
+                        | (b == toChar Alive) && ((v == 2) || (v == 3)) = toChar Alive
                         | otherwise = b

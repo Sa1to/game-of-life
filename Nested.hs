@@ -1,7 +1,7 @@
 module Nested where
 import RightNeighbour
 import Data.List
-
+import Dictionary
 
 rightNested :: [String] -> [[Int]]
 rightNested = map rightList
@@ -16,15 +16,15 @@ topNested :: [String] -> [[Int]]
 topNested lst = transpose $ leftNested $ transpose lst
 
 botRightNested :: [String] -> [[Int]]
-botRightNested lst = botNested [tail l ++ "0" | l <- lst]
+botRightNested lst = botNested [tail l ++ toString Dead | l <- lst]
 
 topRightNested :: [String] -> [[Int]]
-topRightNested lst = topNested [tail l ++ "0" | l <- lst]
+topRightNested lst = topNested [tail l ++ toString Dead | l <- lst]
 
 botLeftNested :: [String] -> [[Int]]
-botLeftNested lst = botNested ["0" ++ init l | l <- lst]
+botLeftNested lst = botNested [toString Dead ++ init l | l <- lst]
 
 topLeftNested :: [String] -> [[Int]]
-topLeftNested lst = topNested ["0" ++ init l | l <- lst]
+topLeftNested lst = topNested [toString Dead ++ init l | l <- lst]
 
 
