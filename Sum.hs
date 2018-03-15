@@ -1,8 +1,7 @@
 {-# LANGUAGE ParallelListComp #-}
 module Sum where
 import Data.List
-import Nested
-import RightNeighbour
+import Neighbour
 
 getSums :: [String] -> [[Int]]
 
@@ -13,11 +12,11 @@ getSums board = [zipWith (+)
                     (zipWith (+)
                         (zipWith (+) tr tl) (zipWith (+) br bl)
                      )
-                | r <- rightNested board
-                | l <- leftNested board
-                | t <- topNested board
-                | b <- botNested board
-                | tr <- topRightNested board
-                | tl <- topLeftNested board
-                | br <- botRightNested board
-                | bl <- botLeftNested board]
+                | r <- stateOfAllRightNeighbours board
+                | l <- stateOfAllLeftNeighbours board
+                | t <- stateOfAllTopNeighbours board
+                | b <- stateOfAllBotNeighbours board
+                | tr <- stateOfAllTopRightNeighbours board
+                | tl <- stateOfAllTopLeftNeighbours board
+                | br <- stateOfAllBotRightNeighbours board
+                | bl <- stateOfAllBotLeftNeighbours board]

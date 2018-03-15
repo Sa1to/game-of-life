@@ -4,12 +4,12 @@ import Dictionary
 
 
 applyRuleForlLine :: String -> [Int] -> String
-applyRuleForlLine b v = [applyBasicValidationRule c i | c <- b | i <- v]
+applyRuleForlLine boardChar value = [applyBasicValidationRule c i | c <- boardChar | i <- value]
 
 applyBasicValidationRule :: Char -> Int -> Char
-applyBasicValidationRule b v
-                        | (b == toChar Dead) && (v == 3) = toChar Alive
-                        | (b == toChar Alive) && (v < 2) = toChar Dead
-                        | (b == toChar Alive) && (v > 3) = toChar Dead
-                        | (b == toChar Alive) && ((v == 2) || (v == 3)) = toChar Alive
-                        | otherwise = b
+applyBasicValidationRule boardChar value
+                        | (boardChar == toChar Dead) && (value == 3) = toChar Alive
+                        | (boardChar == toChar Alive) && (value < 2) = toChar Dead
+                        | (boardChar == toChar Alive) && (value > 3) = toChar Dead
+                        | (boardChar == toChar Alive) && ((value == 2) || (value == 3)) = toChar Alive
+                        | otherwise = boardChar
