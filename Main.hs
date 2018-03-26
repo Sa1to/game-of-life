@@ -3,7 +3,6 @@ module Main where
 import System.IO
 import Control.Monad
 import Data.List 
-import System.Console.ANSI
 import Sum
 import Rules
 import System.Posix.Unistd
@@ -22,3 +21,5 @@ main = do
         mapM_ print new
         loop new
     loop l
+
+clearScreen = putStr "\ESC[2J"
