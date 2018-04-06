@@ -1,6 +1,15 @@
-module Neighbour where
+module Neighbour
+( stateOfAllRightNeighbours
+, stateOfAllLeftNeighbours
+, stateOfAllBotNeighbours
+, stateOfAllTopNeighbours
+, stateOfAllBotRightNeighbours
+, stateOfAllTopRightNeighbours
+, stateOfAllBotLeftNeighbours
+, stateOfAllTopLeftNeighbours
+) where
 import Data.List
-import Dictionary
+import Cell
 
 stateOfRightNeighbour :: String -> [Int]
 

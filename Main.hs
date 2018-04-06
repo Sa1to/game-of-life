@@ -24,7 +24,7 @@ main = do
                 usleep 0
             else usleep 200000
         clearScreen
-        let new = [applyRuleForlLine board values | board <- list | values <- getSums list]
+        let new = [applyRuleForLine board values | board <- list | values <- getSums list]
         mapM_ print new
         loop new
     loop l

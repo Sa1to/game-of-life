@@ -1,10 +1,12 @@
 {-# LANGUAGE ParallelListComp #-}
-module Rules where
-import Dictionary
+module Rules
+( applyRuleForLine
+) where
+import Cell
 
 
-applyRuleForlLine :: String -> [Int] -> String
-applyRuleForlLine boardChar value = [applyBasicValidationRule c i | c <- boardChar | i <- value]
+applyRuleForLine :: String -> [Int] -> String
+applyRuleForLine boardChar value = [applyBasicValidationRule c i | c <- boardChar | i <- value]
 
 applyBasicValidationRule :: Char -> Int -> Char
 applyBasicValidationRule boardChar value
