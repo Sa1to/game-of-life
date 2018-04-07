@@ -1,5 +1,9 @@
 {-# Language DeriveDataTypeable #-}
-module Cell where
+module Cell
+( Cell(..)
+, toChar
+, toString
+) where
 import Data.Data
 
 data Cell = Alive | Dead deriving (Eq, Show, Data, Typeable)
